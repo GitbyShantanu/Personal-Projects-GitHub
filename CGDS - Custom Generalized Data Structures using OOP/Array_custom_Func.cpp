@@ -15,6 +15,8 @@ class Array
         ~Array();
         void Accept();
         void Display();
+
+        // customized functions below...
         T Addition();
         T Multiplication();
         T Maximum();
