@@ -1,4 +1,4 @@
-//Generic Array
+//Generic Array for all numeric datatypes (int,float,double) with customised functions.
 
 #include<iostream>
 using namespace std;
@@ -7,10 +7,11 @@ template<class T>
 
 class Array
 {
-    public: 
+    private: 
         T * Arr;
         int iSize;
 
+    public:
         Array(int X);
         ~Array();
         void Accept();
