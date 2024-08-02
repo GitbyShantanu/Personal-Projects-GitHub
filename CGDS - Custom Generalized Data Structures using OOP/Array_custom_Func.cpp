@@ -25,6 +25,7 @@ class Array
         float Average();
         void DisplayEven();
         void DisplayOdd();
+        void Reverse();
 };
 
 template<class T>
@@ -163,6 +164,18 @@ float Array<T> :: Average()
     return fAvg;
 }
 
+template <class T>
+void Array<T> :: Reverse()
+{   
+    int i = 0,j = 0;
+    for(i = 0,j = iSize-1; i < j; i++,j--)
+    {
+        T Temp = Arr[i];
+        Arr[i] = Arr[j];
+        Arr[j] = Temp;
+    }
+}
+
 int main()
 {
     int Size = 0;
@@ -175,8 +188,13 @@ int main()
     float fRet = 0.0f;
     fobj.Accept();
     fobj.Display();
+
     fRet = fobj.Addition();
     cout<<"Sum of elements : "<<fRet<<endl;
+
+    fobj.Reverse();
+    cout<<"After Reverse : "<<endl;
+    fobj.Display();
 
     return 0;
 }
