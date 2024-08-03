@@ -87,23 +87,29 @@ int main() {
   cin >> size;
 
   // Create an array of floats of size 'size'
+
   Array<float> arr(size);
 
   // Accept elements from the user
+
   arr.Accept();
 
   // Display the elements of the array
+
   cout << "Elements of the array: ";
   arr.Display();
 
   // Find the sum of the elements
+
   float sum = arr.Addition();
   cout << "Sum of elements: " << sum << endl;
 
   // Reverse the elements of the array
+
   arr.Reverse();
 
   // Display the elements after reversing
+  
   cout << "Elements after reversing: ";
   arr.Display();
 
@@ -114,22 +120,18 @@ int main() {
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
 C++
 
-#include <iostream>
-
-using namespace std;
+#include "SinglyLL.h" // Include the header file
 
 int main() {
     SinglyLL<int> iobj;
-    
     iobj.InsertLast(11);
     iobj.InsertLast(21);
     iobj.InsertLast(51);
     iobj.InsertLast(101);
     iobj.Display();
-
+    
     int iRet = iobj.SecondMinimumElement();
-    cout << iRet << endl;
-
+    cout << "Second Minimum Element: " << iRet << endl;
     return 0;
 }
 
