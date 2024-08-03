@@ -61,25 +61,20 @@ Additional customized functions includes (for all linear data structures except 
 ## 🛠️ Installation
 
 1. **Clone the repository:**
-
-   git clone https://github.com/your-GitbyShantanu/generic-data-structure-library.git
+   git clone https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
 
 2. **Navigate to the project directory:**
-
 cd generic-data-structure-library
 
 3. **Compile the code using a C++ compiler :**
-
 g++ main.cpp -o main 
 
 4. **Run the Program :**
-
 Execute the compiled program:
 ./main
 
 ## 🚀 Example Usage for Array: 
-Here's a quick example of how to use the Array :
-
+C++
 
 #include <iostream>
 using namespace std;
@@ -104,15 +99,13 @@ int main()
 }
 
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
-Here's a quick example of how to use the Linked List:
-
+C++
 
 #include <iostream>
 using namespace std;
 int main() 
 {
     SinglyLL<int> iobj;
-
     iobj.InsertLast(11);
     iobj.InsertLast(21);
     iobj.InsertLast(51);
