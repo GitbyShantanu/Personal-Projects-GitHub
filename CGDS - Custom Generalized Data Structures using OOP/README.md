@@ -17,6 +17,8 @@ The following data structures are included in this library:
 Array:
 - `Accept`: Accepts the user defined elements.
 - `Display`: Display the elements.
+
+Custom functions support added for Array: 
 - `Addition`: Computes the sum of all elements.
 - `Multiplication`: Computes the product of all elements.
 - `Maximum`: Finds the maximum element.
@@ -26,7 +28,7 @@ Array:
 - `DisplayOdd`: Displays all odd elements.
 - `Reverse`: Reverses the order of elements.
 
-Each data structure (except Array) supports the following common functionalities:
+Linked Lists supports the following common functionalities:
 - `InsertFirst`: Inserts an element at the beginning of the structure.
 - `InsertLast`: Inserts an element at the end of the structure.
 - `DeleteFirst`: Removes the first element.
@@ -36,7 +38,19 @@ Each data structure (except Array) supports the following common functionalities
 - `Display`: Displays all elements in the structure.
 - `CountNode`: Returns the number of elements in the structure.
 
-Additional customized functions include:
+Stack supports the following regular functionalities:
+- `Push`: Inserts an element in stack.
+- `Pop`: Removes the recently added element (LIFO).
+- `Display`: Displays all elements in the Stack.
+- `CountNode`: Returns the number of elements in the Stack.
+
+Stack supports the following regular functionalities:
+- `Enqueue`: Inserts an element in Queue.
+- `Dequeue`: Removes the element which came first (FCFS).
+- `Display`: Displays all elements in the Queue.
+- `CountNode`: Returns the number of elements in the Queue.
+
+Additional customized functions includes (for all linear data structures except Array):
   - `SearchFirstOccurrence`: Searches for the first occurrence of a value.
   - `SearchLastOccurrence`: Searches for the last occurrence of a value.
   - `MaximumElement`: Finds the maximum element.
@@ -104,3 +118,6 @@ int main() {
 
     return 0;
 }
+
+## 📲 Contact: 
+*For any questions or feedback, please contact **deshshantanu05@gmail.com**.
