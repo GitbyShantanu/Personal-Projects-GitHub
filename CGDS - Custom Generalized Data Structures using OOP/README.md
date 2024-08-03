@@ -64,14 +64,18 @@ Additional customized functions includes (for all linear data structures except 
 git clone  https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
 
 2. **Navigate to the project directory:**
+   
 cd  generic-data-structure-library
 
-3. **Compile the code using a C++ compiler :**
+4. **Compile the code using a C++ compiler :**
+   
 g++  main.cpp  -o  main 
 
-4. **Run the Program :**
+5. **Run the Program :**
 Execute the compiled program:
+
 ./ main
+
 
 
 ## 🚀 Example Usage for Array:
@@ -102,6 +106,7 @@ int main() {
 }
 ```
 
+
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
 
 ```cpp
@@ -125,4 +130,4 @@ int main()
 ```
 
 ### 📲 Contact: 
-*For any questions or feedback, please contact **deshshantanu05@gmail.com**.
+For any questions or feedback, please contact **deshshantanu05@gmail.com**.
