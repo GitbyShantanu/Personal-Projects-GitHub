@@ -73,68 +73,32 @@ g++ main.cpp -o main
 Execute the compiled program:
 ./main
 
-## 🚀 Example Usage for Array: 
-C++
 
-#include <iostream>
+## Example Usage of Array:
 
-using namespace std;
-
-int main() {
-  int size = 0;
-
-  cout << "Enter number of elements: ";
-  cin >> size;
-
-  // Create an array of floats of size 'size'
-
-  Array<float> arr(size);
-
-  // Accept elements from the user
-
-  arr.Accept();
-
-  // Display the elements of the array
-
-  cout << "Elements of the array: ";
-  arr.Display();
-
-  // Find the sum of the elements
-
-  float sum = arr.Addition();
-  cout << "Sum of elements: " << sum << endl;
-
-  // Reverse the elements of the array
-
-  arr.Reverse();
-
-  // Display the elements after reversing
-  
-  cout << "Elements after reversing: ";
-  arr.Display();
-
-  return 0;
-}
-
-
-### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
-C++
-
-#include "SinglyLL.h" // Include the header file
+```cpp
+#include "Array.h" // Include the header file
 
 int main() {
-    SinglyLL<int> iobj;
-    iobj.InsertLast(11);
-    iobj.InsertLast(21);
-    iobj.InsertLast(51);
-    iobj.InsertLast(101);
-    iobj.Display();
-    
-    int iRet = iobj.SecondMinimumElement();
-    cout << "Second Minimum Element: " << iRet << endl;
+    int Size = 0;
+
+    cout << "Enter number of elements: ";
+    cin >> Size;
+
+    Array<float> fobj(Size);
+
+    fobj.Accept();
+    fobj.Display();
+
+    float fRet = fobj.Addition();
+    cout << "Sum of elements: " << fRet << endl;
+
+    fobj.Reverse();
+    cout << "After Reverse:" << endl;
+    fobj.Display();
+
     return 0;
 }
-
 
 ## 📲 Contact: 
 *For any questions or feedback, please contact **deshshantanu05@gmail.com**.
