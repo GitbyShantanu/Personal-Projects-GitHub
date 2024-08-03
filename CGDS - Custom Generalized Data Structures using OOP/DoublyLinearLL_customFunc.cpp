@@ -1,4 +1,4 @@
-//Generic Singly Linear Linked List for all primitive datatypes with customised functions.
+//Generic Doubly Linear Linked List for all primitive datatypes.
 
 #include<iostream>
 using namespace std;
@@ -6,28 +6,28 @@ using namespace std;
 template <class T>
 struct node
 {
-    T data;             
+    T data;
+    struct node * prev;
     struct node * next;
 };
 
 template <class T>
-class SinglyLL
+class DoublyLL
 {
-    private:
-        struct node<T> * First;     
+    public:
+        struct node<T> * First;
         int count;
 
-    public:
-        SinglyLL();
+        DoublyLL();
         void InsertFirst(T no);
         void InsertLast(T no);
         void Display();
-        int CountNode();
+        int CountNode(); 
         void DeleteFirst();
         void DeleteLast();
         void InsertAtPos(T no,int pos);
         void DeleteAtPos(int pos);
-        
+
         // customized functions below...
         int SearchFirstOccurence(T no);
         int SearchLastOccurence(T no);
@@ -38,19 +38,20 @@ class SinglyLL
 };
 
 template <class T>
-SinglyLL<T> :: SinglyLL()
+DoublyLL<T> :: DoublyLL()
 {
-    First = NULL;
-    count = 0;
+    this->First = NULL;
+    this->count = 0;
 }
 
 template <class T>
-void SinglyLL<T> :: InsertFirst(T no)
+void DoublyLL<T> :: InsertFirst(T no)
 {
-    struct node<T> * newn = NULL;       
+    struct node<T> * newn = NULL;
+    newn = new struct node<T>;
     
-    newn = new struct node<T>;          
     newn->data = no;
+    newn->prev = NULL;
     newn->next = NULL;
 
     if(First == NULL)
@@ -60,17 +61,20 @@ void SinglyLL<T> :: InsertFirst(T no)
     else
     {
         newn->next = First;
+        First->prev = newn;
         First = newn;
     }
     count++;
 }
 
 template <class T>
-void SinglyLL<T> :: InsertLast(T no)
+void DoublyLL<T> :: InsertLast(T no)
 {
-    struct node<T> * temp = First;
-    struct node<T> * newn = new struct node<T>;
+    struct node<T> * newn = NULL;
+    newn = new struct node<T>;
+    
     newn->data = no;
+    newn->prev = NULL;
     newn->next = NULL;
 
     if(First == NULL)
@@ -79,19 +83,20 @@ void SinglyLL<T> :: InsertLast(T no)
     }
     else
     {
+        struct node<T> * temp = First;
         while(temp->next != NULL)
         {
             temp = temp->next;
         }
+        newn->prev = temp;
         temp->next = newn;
     }
     count++;
 }
 
 template <class T>
-void SinglyLL<T> :: DeleteFirst()
+void DoublyLL<T> :: DeleteFirst()
 {
-    struct node<T> * temp = First;
     if(First == NULL)
     {
         return;
@@ -104,15 +109,15 @@ void SinglyLL<T> :: DeleteFirst()
     else
     {
         First = First->next;
-        delete temp;
+        delete First->prev;
+        First->prev = NULL;
     }
     count--;
 }
 
 template <class T>
-void SinglyLL<T> :: DeleteLast()
+void DoublyLL<T> :: DeleteLast()
 {
-    struct node<T> * temp = First;
     if(First == NULL)
     {
         return;
@@ -124,6 +129,7 @@ void SinglyLL<T> :: DeleteLast()
     }
     else
     {
+        struct node<T> * temp = First;
         while(temp->next->next != NULL)
         {
             temp = temp->next;
@@ -135,32 +141,32 @@ void SinglyLL<T> :: DeleteLast()
 }
 
 template <class T>
-void SinglyLL <T>:: Display()
-{
-    cout<<"Elements in LL are : "<<endl;
+void DoublyLL<T> :: Display()
+{   
     struct node<T> * temp = First;
+    cout<<"Elements in LL are : \nNULL <=> ";
     while(temp != NULL)
     {
-        cout<<"| "<<temp->data<<" | -> ";
+        cout<<"|"<<temp->data<<"| <=> ";
         temp = temp->next;
     }
-    cout<<"NULL\n";
+    cout<<"NULL"<<endl;
 }
 
-template <class T>
-int SinglyLL<T> :: CountNode()
+template <class T> 
+int DoublyLL<T> :: CountNode()
 {
     return count;
 }
 
 template <class T>
-void SinglyLL <T>:: InsertAtPos(T no,int pos)
+void DoublyLL<T> :: InsertAtPos(T no,int pos)
 {
-    int size = CountNode();
-    struct node<T> * temp = First;
+    int iSize = CountNode();
     struct node<T> * newn = NULL;
+    struct node<T> * temp = First;
 
-    if((pos < 1) || (pos > size+1))
+    if((pos < 1) || (pos > iSize+1))
     {
         return;
     }
@@ -168,14 +174,16 @@ void SinglyLL <T>:: InsertAtPos(T no,int pos)
     {
         InsertFirst(no);
     }
-    else if(pos == size+1)
+    else if(pos == iSize+1)
     {
         InsertLast(no);
     }
     else
     {
         newn = new struct node<T>;
+
         newn->data = no;
+        newn->prev = NULL;
         newn->next = NULL;
 
         for(int i = 1; i < pos-1; i++)
@@ -183,19 +191,21 @@ void SinglyLL <T>:: InsertAtPos(T no,int pos)
             temp = temp->next;
         }
         newn->next = temp->next;
+        newn->next->prev = newn;
+        newn->prev = temp;
         temp->next = newn;
     }
     count++;
 }
 
 template <class T>
-void SinglyLL<T> :: DeleteAtPos(int pos)
+void DoublyLL<T> :: DeleteAtPos(int pos)
 {
-    int size = CountNode();
-    struct node<T>* temp = First;
-    struct node<T>* TargetedNode = NULL;
+    int iSize = CountNode();
+    struct node<T> * temp = First;
+    struct node<T> * TargetedNode = NULL;
 
-    if((pos < 1) || (pos > size))
+    if((pos < 1) || (pos > iSize))
     {
         return;
     }
@@ -203,7 +213,7 @@ void SinglyLL<T> :: DeleteAtPos(int pos)
     {
         DeleteFirst();
     }
-    else if(pos == size)
+    else if(pos == iSize)
     {
         DeleteLast();
     }
@@ -215,13 +225,14 @@ void SinglyLL<T> :: DeleteAtPos(int pos)
         }
         TargetedNode = temp->next;
         temp->next = TargetedNode->next;
+        TargetedNode->next->prev = temp;
         delete TargetedNode;
     }
     count--;
 }
 
 template <class T>
-int SinglyLL<T> :: SearchFirstOccurence(T no)
+int DoublyLL<T> :: SearchFirstOccurence(T no)
 {
     struct node<T>* temp = First;
     int iCnt = -1;
@@ -245,7 +256,7 @@ int SinglyLL<T> :: SearchFirstOccurence(T no)
 }
 
 template <class T>
-int SinglyLL<T> :: SearchLastOccurence(T no)
+int DoublyLL<T> :: SearchLastOccurence(T no)
 {
     struct node<T>* temp = First;
     int iCnt = 0, LastOcc = -1;
@@ -269,7 +280,7 @@ int SinglyLL<T> :: SearchLastOccurence(T no)
 }
 
 template <class T>
-T SinglyLL<T> :: MaximumElement()
+T DoublyLL<T> :: MaximumElement()
 {
     struct node<T>* temp = First;
     T Max = 0;
@@ -282,6 +293,7 @@ T SinglyLL<T> :: MaximumElement()
             {
                 Max = temp->data;
             }  
+            temp = temp->next;
         }   
         return Max;    
     }
@@ -292,10 +304,10 @@ T SinglyLL<T> :: MaximumElement()
 }
 
 template <class T>
-T SinglyLL<T> :: MinimumElement()
+T DoublyLL<T> :: MinimumElement()
 {
     struct node<T>* temp = First;
-    T Min = 0;
+    T Min = temp->data;
      
     if(First != NULL)
     {
@@ -305,6 +317,7 @@ T SinglyLL<T> :: MinimumElement()
             {
                 Min = temp->data;
             }  
+            temp = temp->next;
         }   
         return Min;    
     }
@@ -315,10 +328,10 @@ T SinglyLL<T> :: MinimumElement()
 }
 
 template <class T>
-T SinglyLL<T> :: SecondMaximumElement()
+T DoublyLL<T> :: SecondMaximumElement()
 {
     struct node<T>* temp = First;
-    T Max1 = 0, Max2 = 0;
+    T Max1 = temp->data, Max2 = 0;
      
     if(First != NULL)
     {
@@ -344,10 +357,10 @@ T SinglyLL<T> :: SecondMaximumElement()
 }
 
 template <class T>
-T SinglyLL<T> :: SecondMinimumElement()
+T DoublyLL<T> :: SecondMinimumElement()
 {
     struct node<T>* temp = First;
-    T Min1 = 99.99, Min2 = 0;
+    T Min1 = 9999, Min2 = 0;
      
     if(First != NULL)
     {
@@ -374,33 +387,33 @@ T SinglyLL<T> :: SecondMinimumElement()
 
 int main()
 {
-    SinglyLL <int>iobj;
-    SinglyLL <float>fobj;
-    SinglyLL <double>dobj;
-    SinglyLL <char>cobj;
+    DoublyLL<int> iobj;
+    DoublyLL<float> fobj;
+    DoublyLL<double> dobj;
+    DoublyLL<char> cobj;
 
-    cout<<"\nLinkedList of Integers : "<<"\n";
+    cout<<"\nDoublyLL of Integers : "<<endl;    
     iobj.InsertLast(11);
     iobj.InsertLast(21);
     iobj.InsertLast(51);
     iobj.InsertLast(101);
     iobj.Display();
 
-    cout<<"\nLinkedList of Floats : "<<"\n";
+    cout<<"\nDoublyLL of Float : "<<endl;
     fobj.InsertLast(11.99);
     fobj.InsertLast(21.99);
     fobj.InsertLast(51.99);
     fobj.InsertLast(101.99);
     fobj.Display();
 
-    cout<<"\nLinkedList of Doubles : "<<"\n";
+    cout<<"\nDoublyLL of Doubles : "<<"\n";
     dobj.InsertLast(11.9999);
     dobj.InsertLast(21.9999);
     dobj.InsertLast(51.9999);
-    dobj.InsertLast(101.9999);
+    dobj.InsertLast(101.99);
     dobj.Display();
 
-    cout<<"\nLinkedList of Characters : "<<"\n";
+    cout<<"\nDoublyLL of Characters : "<<"\n";
     cobj.InsertLast('A');
     cobj.InsertLast('B');
     cobj.InsertLast('C');

@@ -28,6 +28,14 @@ class SinglyCL
         void DeleteLast();
         void InsertAtPos(T no,int pos);
         void DeleteAtPos(int pos);
+
+        // customized functions below...
+        int SearchFirstOccurence(T no);
+        int SearchLastOccurence(T no);
+        T MaximumElement();
+        T MinimumElement();
+        T SecondMaximumElement();
+        T SecondMinimumElement();
 };
 
 template <class T>
@@ -221,6 +229,160 @@ void SinglyCL<T>:: DeleteAtPos(int pos)
         delete TargetedNode;
     }
     count--;
+}
+
+template <class T>
+int SinglyCL<T> :: SearchFirstOccurence(T no)
+{
+    struct node<T>* temp = First;
+    int iCnt = -1;
+    if(First != NULL)
+    {
+        for(iCnt = 1; iCnt <= CountNode(); iCnt++)
+        {
+            if((temp->data) == no)
+            {
+                return iCnt;
+                break;
+            }   
+            temp = temp->next;
+        }
+        return -1;
+    }
+    else
+    {
+        return iCnt;
+    }
+}
+
+template <class T>
+int SinglyCL<T> :: SearchLastOccurence(T no)
+{
+    struct node<T>* temp = First;
+    int iCnt = 0, LastOcc = -1;
+
+    if(First != NULL)
+    {
+        for(iCnt = 1; iCnt <= CountNode(); iCnt++)
+        {
+            if((temp->data) == no)
+            {
+                LastOcc = iCnt;
+            }   
+            temp = temp->next;
+        }
+        return LastOcc;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+template <class T>
+T SinglyCL<T> :: MaximumElement()
+{
+    struct node<T>* temp = First;
+    T Max = 0;
+     
+    if(First != NULL)
+    {
+        do 
+        {
+            if(temp->data > Max)
+            {
+                Max = temp->data;
+            }  
+            temp = temp->next;
+        } while(temp != Last->next);
+        return Max;    
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+template <class T>
+T SinglyCL<T> :: MinimumElement()
+{
+    struct node<T>* temp = First;
+    T Min = temp->data;
+     
+    if(First != NULL)
+    {
+        do 
+        {
+            if(temp->data < Min)
+            {
+                Min = temp->data;
+            }  
+            temp = temp->next;
+        } while(temp != First);  
+        return Min;    
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+template <class T>
+T SinglyCL<T> :: SecondMaximumElement()
+{
+    struct node<T>* temp = First;
+    T Max1 = 0, Max2 = 0;
+     
+    if(First != NULL)
+    {
+        do 
+        {
+            if(temp->data > Max1)
+            {
+                Max2 = Max1;
+                Max1 = temp->data;
+            }  
+            else if((temp->data < Max1) && (temp->data > Max2))
+            {
+                Max2 = temp->data;
+            }  
+            temp = temp->next;
+        }while(temp != Last->next); 
+        return Max2;    
+    }
+    else
+    {
+        return -1;
+    }
+}
+
+template <class T>
+T SinglyCL<T> :: SecondMinimumElement()
+{
+    struct node<T>* temp = First;
+    T Min1 = 9999.99, Min2 = 0;
+     
+    if(First != NULL)
+    {
+        do 
+        {
+            if(temp->data < Min1)
+            {
+                Min2 = Min1;
+                Min1 = temp->data;
+            }  
+            else if((temp->data > Min1) && (temp->data < Min2))
+            {
+                Min2 = temp->data;
+            }  
+            temp = temp->next;
+        }while(temp != Last->next); 
+        return Min2;    
+    }
+    else
+    {
+        return -1;
+    }
 }
 
 int main()

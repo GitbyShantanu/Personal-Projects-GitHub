@@ -171,6 +171,7 @@ T Stack<T> :: MaximumElement()
             {
                 Max = temp->data;
             }  
+            temp = temp->next;
         }   
         return Max;    
     }
@@ -194,6 +195,7 @@ T Stack<T> :: MinimumElement()
             {
                 Min = temp->data;
             }  
+            temp = temp->next;
         }   
         return Min;    
     }

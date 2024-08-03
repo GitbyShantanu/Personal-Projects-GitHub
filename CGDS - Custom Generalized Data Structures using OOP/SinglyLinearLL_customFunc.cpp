@@ -1,4 +1,4 @@
-//Generic Queue for all primitive datatypes with customised functions.
+//Generic Singly Linear Linked List for all primitive datatypes with customised functions.
 
 #include<iostream>
 using namespace std;
@@ -6,24 +6,28 @@ using namespace std;
 template <class T>
 struct node
 {
-    T data;
+    T data;             
     struct node * next;
 };
 
 template <class T>
-class Queue
+class SinglyLL
 {
     private:
-        struct node <T> * First;
+        struct node<T> * First;     
         int count;
 
     public:
-        Queue();
-        void Enqueue(T no);
-        T Dequeue();
+        SinglyLL();
+        void InsertFirst(T no);
+        void InsertLast(T no);
         void Display();
         int CountNode();
-
+        void DeleteFirst();
+        void DeleteLast();
+        void InsertAtPos(T no,int pos);
+        void DeleteAtPos(int pos);
+        
         // customized functions below...
         int SearchFirstOccurence(T no);
         int SearchLastOccurence(T no);
@@ -34,15 +38,37 @@ class Queue
 };
 
 template <class T>
-Queue<T> :: Queue()
+SinglyLL<T> :: SinglyLL()
 {
     First = NULL;
     count = 0;
 }
 
 template <class T>
-void Queue<T> :: Enqueue(T no)
+void SinglyLL<T> :: InsertFirst(T no)
 {
+    struct node<T> * newn = NULL;       
+    
+    newn = new struct node<T>;          
+    newn->data = no;
+    newn->next = NULL;
+
+    if(First == NULL)
+    {
+        First = newn;
+    }
+    else
+    {
+        newn->next = First;
+        First = newn;
+    }
+    count++;
+}
+
+template <class T>
+void SinglyLL<T> :: InsertLast(T no)
+{
+    struct node<T> * temp = First;
     struct node<T> * newn = new struct node<T>;
     newn->data = no;
     newn->next = NULL;
@@ -53,7 +79,6 @@ void Queue<T> :: Enqueue(T no)
     }
     else
     {
-        struct node<T> *temp = First;
         while(temp->next != NULL)
         {
             temp = temp->next;
@@ -64,57 +89,139 @@ void Queue<T> :: Enqueue(T no)
 }
 
 template <class T>
-T Queue<T> :: Dequeue()
+void SinglyLL<T> :: DeleteFirst()
 {
     struct node<T> * temp = First;
-    T value = 0;
     if(First == NULL)
     {
-        return value;
+        return;
     }
     else if(First->next == NULL)
     {
-        value = temp->data;
         delete First;
         First = NULL;
     }
     else
     {
-        value = temp->data;
         First = First->next;
         delete temp;
     }
-    return value;
+    count--;
 }
 
 template <class T>
-void Queue<T> :: Display()
+void SinglyLL<T> :: DeleteLast()
 {
     struct node<T> * temp = First;
-    cout<<"Elements in Stack are : \n";
-    if(First != NULL)
+    if(First == NULL)
     {
-        while(temp != NULL)
+        return;
+    }
+    else if(First->next == NULL)
+    {
+        delete First;
+        First = NULL;
+    }
+    else
+    {
+        while(temp->next->next != NULL)
         {
-            cout<<"|"<<temp->data<<"| ";
             temp = temp->next;
         }
-        cout<<endl;
+        delete temp->next;
+        temp->next = NULL;
     }
-    else 
-    {
-        cout<<"|NULL|\n";
-    }
+    count--;
 }
 
 template <class T>
-int Queue<T> :: CountNode()
+void SinglyLL <T>:: Display()
+{
+    cout<<"Elements in LL are : "<<endl;
+    struct node<T> * temp = First;
+    while(temp != NULL)
+    {
+        cout<<"| "<<temp->data<<" | -> ";
+        temp = temp->next;
+    }
+    cout<<"NULL\n";
+}
+
+template <class T>
+int SinglyLL<T> :: CountNode()
 {
     return count;
 }
 
 template <class T>
-int Queue<T> :: SearchFirstOccurence(T no)
+void SinglyLL <T>:: InsertAtPos(T no,int pos)
+{
+    int size = CountNode();
+    struct node<T> * temp = First;
+    struct node<T> * newn = NULL;
+
+    if((pos < 1) || (pos > size+1))
+    {
+        return;
+    }
+    if(pos == 1)
+    {
+        InsertFirst(no);
+    }
+    else if(pos == size+1)
+    {
+        InsertLast(no);
+    }
+    else
+    {
+        newn = new struct node<T>;
+        newn->data = no;
+        newn->next = NULL;
+
+        for(int i = 1; i < pos-1; i++)
+        {
+            temp = temp->next;
+        }
+        newn->next = temp->next;
+        temp->next = newn;
+    }
+    count++;
+}
+
+template <class T>
+void SinglyLL<T> :: DeleteAtPos(int pos)
+{
+    int size = CountNode();
+    struct node<T>* temp = First;
+    struct node<T>* TargetedNode = NULL;
+
+    if((pos < 1) || (pos > size))
+    {
+        return;
+    }
+    if(pos == 1)
+    {
+        DeleteFirst();
+    }
+    else if(pos == size)
+    {
+        DeleteLast();
+    }
+    else
+    {
+        for(int i = 1; i < pos-1; i++)
+        {
+            temp = temp->next;
+        }
+        TargetedNode = temp->next;
+        temp->next = TargetedNode->next;
+        delete TargetedNode;
+    }
+    count--;
+}
+
+template <class T>
+int SinglyLL<T> :: SearchFirstOccurence(T no)
 {
     struct node<T>* temp = First;
     int iCnt = -1;
@@ -138,7 +245,7 @@ int Queue<T> :: SearchFirstOccurence(T no)
 }
 
 template <class T>
-int Queue<T> :: SearchLastOccurence(T no)
+int SinglyLL<T> :: SearchLastOccurence(T no)
 {
     struct node<T>* temp = First;
     int iCnt = 0, LastOcc = -1;
@@ -162,7 +269,7 @@ int Queue<T> :: SearchLastOccurence(T no)
 }
 
 template <class T>
-T Queue<T> :: MaximumElement()
+T SinglyLL<T> :: MaximumElement()
 {
     struct node<T>* temp = First;
     T Max = 0;
@@ -185,7 +292,7 @@ T Queue<T> :: MaximumElement()
 }
 
 template <class T>
-T Queue<T> :: MinimumElement()
+T SinglyLL<T> :: MinimumElement()
 {
     struct node<T>* temp = First;
     T Min = 0;
@@ -208,7 +315,7 @@ T Queue<T> :: MinimumElement()
 }
 
 template <class T>
-T Queue<T> :: SecondMaximumElement()
+T SinglyLL<T> :: SecondMaximumElement()
 {
     struct node<T>* temp = First;
     T Max1 = 0, Max2 = 0;
@@ -237,10 +344,10 @@ T Queue<T> :: SecondMaximumElement()
 }
 
 template <class T>
-T Queue<T> :: SecondMinimumElement()
+T SinglyLL<T> :: SecondMinimumElement()
 {
     struct node<T>* temp = First;
-    T Min1 = 99.9999, Min2 = 0;
+    T Min1 = 9999.99, Min2 = 0;
      
     if(First != NULL)
     {
@@ -267,34 +374,40 @@ T Queue<T> :: SecondMinimumElement()
 
 int main()
 {
-    Queue<int> iobj;
-    Queue<float> fobj;
-    Queue<double> dobj;
-    Queue<char> cobj;
+    SinglyLL <int>iobj;
+    SinglyLL <float>fobj;
+    SinglyLL <double>dobj;
+    SinglyLL <char>cobj;
 
-    cout<<"\ninteger Queue : \n";
-    iobj.Enqueue(11);
-    iobj.Enqueue(21);    
-    iobj.Enqueue(51);    
+    cout<<"\nLinkedList of Integers : "<<"\n";
+    iobj.InsertLast(11);
+    iobj.InsertLast(21);
+    iobj.InsertLast(51);
+    iobj.InsertLast(101);
     iobj.Display();
 
-    cout<<"\nfloat Queue : \n";   
-    fobj.Enqueue(11.5);
-    fobj.Enqueue(21.5);    
-    fobj.Enqueue(51.5);    
+    int iRet = iobj.SecondMinimumElement();
+    cout<<iRet<<endl;
+
+    cout<<"\nLinkedList of Floats : "<<"\n";
+    fobj.InsertLast(11.99);
+    fobj.InsertLast(21.99);
+    fobj.InsertLast(51.99);
+    fobj.InsertLast(101.99);
     fobj.Display();
 
-    cout<<"\ndouble Queue : \n";   
-    dobj.Enqueue(11.572);
-    dobj.Enqueue(21.564);    
-    dobj.Enqueue(51.564);    
-    fobj.Display();
+    cout<<"\nLinkedList of Doubles : "<<"\n";
+    dobj.InsertLast(11.9999);
+    dobj.InsertLast(21.9999);
+    dobj.InsertLast(51.9999);
+    dobj.InsertLast(101.9999);
+    dobj.Display();
 
-    cout<<"\ncharacter Queue : \n";
-    cobj.Enqueue('A');    
-    cobj.Enqueue('B');    
-    cobj.Enqueue('C');    
-    cobj.Enqueue('D');
+    cout<<"\nLinkedList of Characters : "<<"\n";
+    cobj.InsertLast('A');
+    cobj.InsertLast('B');
+    cobj.InsertLast('C');
+    cobj.InsertLast('D');
     cobj.Display();
 
     return 0;
