@@ -61,68 +61,56 @@ Additional customized functions includes (for all linear data structures except 
 ## 🛠️ Installation
 
 1. **Clone the repository:**
-   git clone https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
+git clone  https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
 
 2. **Navigate to the project directory:**
-cd generic-data-structure-library
+cd  generic-data-structure-library
 
-3. **Compile the code using a C++ compiler :**
-g++ main.cpp -o main 
+4. **Compile the code using a C++ compiler :**
+g++  main.cpp  -o  main 
 
-4. **Run the Program :**
-Execute the compiled program:
-./main
+5. **Run the Program :**
+Execute the compiled program:  ./ main
 
-## 🚀 Example Usage for Array: 
-C++
 
-#include <iostream>
 
+## 🚀 Example Usage for Array:
+
+```cpp
+#include<iostream>
 using namespace std;
 
 int main() {
-  int size = 0;
+    int Size = 0;
 
-  cout << "Enter number of elements: ";
-  cin >> size;
+    cout << "Enter number of elements: ";
+    cin >> Size;
 
-  // Create an array of floats of size 'size'
+    Array<float> fobj(Size);
 
-  Array<float> arr(size);
+    fobj.Accept();
+    fobj.Display();
 
-  // Accept elements from the user
+    float fRet = fobj.Addition();
+    cout << "Sum of elements: " << fRet << endl;
 
-  arr.Accept();
+    fobj.Reverse();
+    cout << "After Reverse:" << endl;
+    fobj.Display();
 
-  // Display the elements of the array
-
-  cout << "Elements of the array: ";
-  arr.Display();
-
-  // Find the sum of the elements
-
-  float sum = arr.Addition();
-  cout << "Sum of elements: " << sum << endl;
-
-  // Reverse the elements of the array
-
-  arr.Reverse();
-
-  // Display the elements after reversing
-  
-  cout << "Elements after reversing: ";
-  arr.Display();
-
-  return 0;
+    return 0;
 }
+```
 
 
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
-C++
 
-#include "SinglyLL.h" // Include the header file
+```cpp
+#include<iostream>
+using namespace std;
 
-int main() {
+int main()
+{
     SinglyLL<int> iobj;
     iobj.InsertLast(11);
     iobj.InsertLast(21);
@@ -132,9 +120,10 @@ int main() {
     
     int iRet = iobj.SecondMinimumElement();
     cout << "Second Minimum Element: " << iRet << endl;
+
     return 0;
 }
+```
 
-
-## 📲 Contact: 
-*For any questions or feedback, please contact **deshshantanu05@gmail.com**.
+### 📲 Contact: 
+For any questions or feedback, please contact **deshshantanu05@gmail.com**.
