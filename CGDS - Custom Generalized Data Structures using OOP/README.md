@@ -14,7 +14,7 @@ The following data structures are included in this library:
 - **Queue**
 
 ## Features
-- **Array**
+Array:
 - `Accept`: Accepts the user defined elements.
 - `Display`: Display the elements.
 - `Addition`: Computes the sum of all elements.
