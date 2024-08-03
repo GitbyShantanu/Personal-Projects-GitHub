@@ -77,35 +77,50 @@ Execute the compiled program:
 C++
 
 #include <iostream>
+
 using namespace std;
-int main() 
-{
-    int Size = 0;
-    cout << "Enter number of elements: ";
-    cin >> Size;
 
-    Array<float> fobj(Size);
-    fobj.Accept();
-    fobj.Display();
+int main() {
+  int size = 0;
 
-    float fRet = fobj.Addition();
-    cout << "Sum of elements: " << fRet << endl;
+  cout << "Enter number of elements: ";
+  cin >> size;
 
-    fobj.Reverse();
-    cout << "After Reverse: " << endl;
-    fobj.Display();
+  // Create an array of floats of size 'size'
+  Array<float> arr(size);
 
-    return 0;
+  // Accept elements from the user
+  arr.Accept();
+
+  // Display the elements of the array
+  cout << "Elements of the array: ";
+  arr.Display();
+
+  // Find the sum of the elements
+  float sum = arr.Addition();
+  cout << "Sum of elements: " << sum << endl;
+
+  // Reverse the elements of the array
+  arr.Reverse();
+
+  // Display the elements after reversing
+  cout << "Elements after reversing: ";
+  arr.Display();
+
+  return 0;
 }
+
 
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
 C++
 
 #include <iostream>
+
 using namespace std;
-int main() 
-{
+
+int main() {
     SinglyLL<int> iobj;
+    
     iobj.InsertLast(11);
     iobj.InsertLast(21);
     iobj.InsertLast(51);
