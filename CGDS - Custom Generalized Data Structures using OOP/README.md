@@ -44,7 +44,7 @@ Stack supports the following regular functionalities:
 - `Display`: Displays all elements in the Stack.
 - `CountNode`: Returns the number of elements in the Stack.
 
-Stack supports the following regular functionalities:
+Queue supports the following regular functionalities:
 - `Enqueue`: Inserts an element in Queue.
 - `Dequeue`: Removes the element which came first (FCFS).
 - `Display`: Displays all elements in the Queue.
@@ -61,25 +61,30 @@ Additional customized functions includes (for all linear data structures except 
 ## 🛠️ Installation
 
 1. **Clone the repository:**
-   git clone https://github.com/your-username/generic-data-structure-library.git
+
+   git clone https://github.com/your-GitbyShantanu/generic-data-structure-library.git
 
 2. **Navigate to the project directory:**
+
 cd generic-data-structure-library
 
 3. **Compile the code using a C++ compiler :**
-g++ -o main main.cpp
+
+g++ main.cpp -o main 
 
 4. **Run the Program :**
+
 Execute the compiled program:
 ./main
 
 ## 🚀 Example Usage for Array: 
 Here's a quick example of how to use the Array :
 
+
 #include <iostream>
 using namespace std;
-
-int main() {
+int main() 
+{
     int Size = 0;
     cout << "Enter number of elements: ";
     cin >> Size;
@@ -101,10 +106,11 @@ int main() {
 ### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
 Here's a quick example of how to use the Linked List:
 
+
 #include <iostream>
 using namespace std;
-
-int main() {
+int main() 
+{
     SinglyLL<int> iobj;
 
     iobj.InsertLast(11);
@@ -118,6 +124,7 @@ int main() {
 
     return 0;
 }
+
 
 ## 📲 Contact: 
 *For any questions or feedback, please contact **deshshantanu05@gmail.com**.
