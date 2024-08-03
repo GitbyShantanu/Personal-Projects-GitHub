@@ -58,21 +58,6 @@ Additional customized functions includes (for all linear data structures except 
   - `SecondMaximumElement`: Finds the second maximum element.
   - `SecondMinimumElement`: Finds the second minimum element.
   
-## 🛠️ Installation
-
-1. **Clone the repository:**
-git clone  https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
-
-2. **Navigate to the project directory:**
-cd  generic-data-structure-library
-
-4. **Compile the code using a C++ compiler :**
-g++  main.cpp  -o  main 
-
-5. **Run the Program :**
-Execute the compiled program: 
-./ main
-
 
 ## 🚀 Example Usage for Array:
 
@@ -102,8 +87,7 @@ int main() {
 }
 ```
 
-
-### 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
+## 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
 
 ```cpp
 #include<iostream>
@@ -125,5 +109,18 @@ int main()
 }
 ```
 
-### 📲 Contact: 
+## 🛠️ How to Run / Use :
+
+1. **Navigate to the project directory:**
+cd  generic-data-structure-library
+
+2. **Compile the code using a C++ compiler :**
+g++  main.cpp  -o  main 
+
+3. **Run the Program :**
+Execute the compiled program: 
+./ main
+
+
+## 📲 Contact: 
 For any questions or feedback, please contact **deshshantanu05@gmail.com**.
