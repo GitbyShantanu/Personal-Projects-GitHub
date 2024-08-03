@@ -29,10 +29,14 @@ class Array
 };
 
 template<class T>
-Array<T>:: Array(int X)
+Array<T>::Array(int X) 
 {
-    this->iSize = X;
-    this->Arr = new T[iSize];
+    if (X < 0) 
+    {
+        throw invalid_argument("Array size cannot be negative");
+    }
+    iSize = X;
+    Arr = new T[iSize];
 }
 
 template<class T>
