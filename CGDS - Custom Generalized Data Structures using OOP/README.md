@@ -61,7 +61,7 @@ Additional customized functions includes (for all linear data structures except 
 ## 🛠️ Installation
 
 1. **Clone the repository:**
-   git clone https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
+git clone https://github.com/GitbyShantanu/Personal-Projects-GitHub/tree/main/CGDS%20-%20Custom%20Generalized%20Data%20Structures%20using%20OOP
 
 2. **Navigate to the project directory:**
 cd generic-data-structure-library
@@ -77,7 +77,8 @@ Execute the compiled program:
 ## Example Usage of Array:
 
 ```cpp
-#include "Array.h" // Include the header file
+#include<iostream.h>
+using namespace std;
 
 int main() {
     int Size = 0;
@@ -99,6 +100,8 @@ int main() {
 
     return 0;
 }
+```
 
-## 📲 Contact: 
+
+###📲 Contact: 
 *For any questions or feedback, please contact **deshshantanu05@gmail.com**.
