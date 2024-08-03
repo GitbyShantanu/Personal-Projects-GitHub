@@ -70,8 +70,8 @@ cd  generic-data-structure-library
 g++  main.cpp  -o  main 
 
 5. **Run the Program :**
-Execute the compiled program:  ./ main
-
+Execute the compiled program: 
+./ main
 
 
 ## 🚀 Example Usage for Array:
