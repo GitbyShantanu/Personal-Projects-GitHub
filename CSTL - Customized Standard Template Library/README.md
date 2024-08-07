@@ -46,7 +46,7 @@ Stack supports the following regular functionalities:
 
 Queue supports the following regular functionalities:
 - `Enqueue`: Inserts an element in Queue.
-- `Dequeue`: Removes the element which came first (FCFS).
+- `Dequeue`: Removes the element which came first (FIFO).
 - `Display`: Displays all elements in the Queue.
 - `CountNode`: Returns the number of elements in the Queue.
 
