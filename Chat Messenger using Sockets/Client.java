@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-class DemoClient
+class Client
 {
     public static void main(String Arg[]) throws Exception
     {

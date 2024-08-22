@@ -13,7 +13,7 @@ This project is a simple Chat Messenger application implemented in Java. It demo
 
 ## 🗂️ Project Structure
 
-- **Client Code**: The client-side code (`DemoClient.java`) handles sending messages to the server and receiving responses.
+- **Client Code**: The client-side code (`Client.java`) handles sending messages to the server and receiving responses.
 - **Server Code**: The server-side code (`Server.java`) listens for client connections, receives messages, and sends responses.
 
 ## 🛠️ Prerequisites
@@ -45,13 +45,13 @@ This project is a simple Chat Messenger application implemented in Java. It demo
 1. Compile the client code:
 
    ```bash
-   javac DemoClient.java
+   javac Client.java
    ```
 
 2. Run the client code:
 
    ```bash
-   java DemoClient
+   java Client
    ```
 
 3. Once the client starts, it will attempt to connect to the server at `localhost` on port `2100`.
@@ -60,7 +60,7 @@ This project is a simple Chat Messenger application implemented in Java. It demo
 
 ## 📜 Code Explanation
 
-### Client Code (`DemoClient.java`)
+### Client Code (`Client.java`)
 
 - **Socket Creation**: 
   ```java
