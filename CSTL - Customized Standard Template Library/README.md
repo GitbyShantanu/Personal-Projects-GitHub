@@ -1,6 +1,7 @@
-# 🌟 Customized Standard Template Library in C++ 🌟
 
-Welcome to the **Customized Standard Template Library**! This repository contains *generic* implementations of various linear data structures in C++ with custom functionalities to support all primitive data types.
+# 🌟 Generic Data Structure Library in C++ 🌟
+
+Welcome to the **Generic Data Structure Library**! This repository contains *generic* implementations of various linear data structures in C++ with custom functionalities to support all primitive data types.
 
 ## Overview
 The following data structures are included in this library:
@@ -12,11 +13,12 @@ The following data structures are included in this library:
 - **Doubly Circular Linked List**
 - **Stack**
 - **Queue**
+- **Binary Search Tree**
 
 ## Features
-Array:
-- `Accept`: Accepts the user defined elements.
-- `Display`: Display the elements.
+### Array:
+- `Accept`: Accepts the user-defined elements.
+- `Display`: Displays the elements.
 
 Custom functions support added for Array: 
 - `Addition`: Computes the sum of all elements.
@@ -28,7 +30,8 @@ Custom functions support added for Array:
 - `DisplayOdd`: Displays all odd elements.
 - `Reverse`: Reverses the order of elements.
 
-Linked Lists supports the following common functionalities:
+### Linked Lists
+Supports the following common functionalities:
 - `InsertFirst`: Inserts an element at the beginning of the structure.
 - `InsertLast`: Inserts an element at the end of the structure.
 - `DeleteFirst`: Removes the first element.
@@ -38,28 +41,43 @@ Linked Lists supports the following common functionalities:
 - `Display`: Displays all elements in the structure.
 - `CountNode`: Returns the number of elements in the structure.
 
-Stack supports the following regular functionalities:
-- `Push`: Inserts an element in stack.
+### Stack
+Supports the following regular functionalities:
+- `Push`: Inserts an element in the stack.
 - `Pop`: Removes the recently added element (LIFO).
-- `Display`: Displays all elements in the Stack.
-- `CountNode`: Returns the number of elements in the Stack.
+- `Display`: Displays all elements in the stack.
+- `CountNode`: Returns the number of elements in the stack.
 
-Queue supports the following regular functionalities:
-- `Enqueue`: Inserts an element in Queue.
-- `Dequeue`: Removes the element which came first (FIFO).
-- `Display`: Displays all elements in the Queue.
-- `CountNode`: Returns the number of elements in the Queue.
+### Queue
+Supports the following regular functionalities:
+- `Enqueue`: Inserts an element in the queue.
+- `Dequeue`: Removes the element which came first (FCFS).
+- `Display`: Displays all elements in the queue.
+- `CountNode`: Returns the number of elements in the queue.
 
-Additional customized functions includes (for all linear data structures except Array):
-  - `SearchFirstOccurrence`: Searches for the first occurrence of a value.
-  - `SearchLastOccurrence`: Searches for the last occurrence of a value.
-  - `MaximumElement`: Finds the maximum element.
-  - `MinimumElement`: Finds the minimum element.
-  - `SecondMaximumElement`: Finds the second maximum element.
-  - `SecondMinimumElement`: Finds the second minimum element.
-  
+### Binary Search Tree
+Supports the following functionalities:
+- `Insert`: Inserts an element in the BST.
+- `Search`: Searches for an element in the BST.
+- `Inorder`: Displays elements in ascending order.
+- `Preorder`: Displays elements in pre-order traversal.
+- `Postorder`: Displays elements in post-order traversal.
+- `CountNode`: Returns the number of nodes in the BST.
+- `CountLeaf`: Returns the number of leaf nodes.
+- `CountParent`: Returns the number of parent nodes.
+- `Sum`: Computes the sum of all elements.
+- `CountEven`: Counts the number of even elements.
+- `CountOdd`: Counts the number of odd elements.
 
-## 🚀 Example Usage for Array:
+Additional customized functions include (for all linear data structures except Array):
+- `SearchFirstOccurrence`: Searches for the first occurrence of a value.
+- `SearchLastOccurrence`: Searches for the last occurrence of a value.
+- `MaximumElement`: Finds the maximum element.
+- `MinimumElement`: Finds the minimum element.
+- `SecondMaximumElement`: Finds the second maximum element.
+- `SecondMinimumElement`: Finds the second minimum element.
+
+## 🚀 Example Usage for Array
 
 ```cpp
 #include<iostream>
@@ -87,7 +105,7 @@ int main() {
 }
 ```
 
-## 🚀 Example Usage for Singly Linked List (Same usage For remaining Linked lists, Stack and Queue)
+## 🚀 Example Usage for Singly Linked List (Same usage for remaining Linked Lists)
 
 ```cpp
 #include<iostream>
@@ -96,7 +114,6 @@ using namespace std;
 int main()
 {
     SinglyLL<int> iobj;
-
     iobj.InsertLast(11);
     iobj.InsertLast(21);
     iobj.InsertLast(51);
@@ -110,18 +127,81 @@ int main()
 }
 ```
 
-## 🛠️ How to Run / Use :
+## 🚀 Example Usage for Stack
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    Stack<int> iobj;
+    iobj.Push(51);    
+    iobj.Push(21);    
+    iobj.Push(11);
+    iobj.Display();
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Queue
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    Queue<int> iobj;
+    iobj.Enqueue(11);
+    iobj.Enqueue(21);    
+    iobj.Enqueue(51);
+    iobj.Display();
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Binary Search Tree
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    BinarySearchTree<int> iobj;
+    iobj.Insert(50);
+    iobj.Insert(30);
+    iobj.Insert(20);
+    iobj.Insert(70);
+    iobj.Inorder();
+
+    cout << "Element 30 " << (iobj.Search(30) ? "found" : "not found") << " in the BST.\n";
+    cout << "Total Nodes: " << iobj.CountNode() << "\n";
+
+    return 0;
+}
+```
+
+## 🛠️ How to Run / Use:
 
 1. **Navigate to the project directory:**
-cd  Customized-Standard-Template-library
+```bash
+cd Customized-Standard-Template-library
+```
 
-2. **Compile the code using a C++ compiler :**
-g++  main.cpp  -o  main 
+2. **Compile the code using a C++ compiler:**
+```bash
+g++ main.cpp -o main
+```
 
-3. **Run the Program :**
+3. **Run the Program:**
 Execute the compiled program: 
-./ main
+```bash
+./main
+```
 
-
-## 📲 Contact: 
+## 📲 Contact:
 For any questions or feedback, please contact **deshshantanu05@gmail.com**.
