@@ -1,10 +1,10 @@
-# Packer-Unpacker Project
+# Packer-Unpacker Project 🗃️
 
-## Requirements
+## Requirements 🛠️
 
 - Java JDK 8 or higher
 
-## Installation
+## Installation ⚙️
 
 1. Clone the repository:
    ```bash
@@ -22,7 +22,7 @@
    java -cp bin packerunpacker.Main
    ```
 
-## How to Use
+## How to Use 📦
 
 1. **Pack Files**:
    - Choose option `1` to pack files.
@@ -32,6 +32,8 @@
    - Choose option `2` to unpack files.
    - Enter the packed file name.
 
-## Contributing
+## Contributing 🤝
 
 Feel free to open issues or submit pull requests for any improvements.
+```
+
