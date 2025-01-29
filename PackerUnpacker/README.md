@@ -1,54 +1,39 @@
-```markdown
-# Packer-Unpacker Project
+# Packer-Unpacker Project 🗃️
 
-## Requirements
+## Requirements 🛠️
 
 - Java JDK 8 or higher
 
-## Installation
+## Installation ⚙️
 
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/PackerUnpacker.git
    ```
 
-2. Navigate to the `src` directory:
+2. Navigate to the project folder:
    ```bash
-   cd PackerUnpacker/src/main/java
+   cd PackerUnpacker
    ```
 
-3. Compile the files:
+3. Compile and run the project:
    ```bash
-   javac -d ../../../../bin packerunpacker/*.java
+   javac -d bin src/main/java/packerunpacker/*.java
+   java -cp bin packerunpacker.Main
    ```
 
-4. Run the program:
-   ```bash
-   java -cp ../../../../bin packerunpacker.Main
-   ```
+## How to Use 📦
 
-## Usage
+1. **Pack Files**:
+   - Choose option `1` to pack files.
+   - Enter the directory name and the name for the packed file.
 
-1. Pack Files: Enter the directory name and the packed file name.
-2. Unpack Files: Enter the packed file name to extract the files.
+2. **Unpack Files**:
+   - Choose option `2` to unpack files.
+   - Enter the packed file name.
 
-## Project Structure
+## Contributing 🤝
 
-```
-PackerUnpacker
-│
-└── src/
-    └── main/
-        └── java/
-            └── packerunpacker/
-                ├── Main.java
-                ├── Packer.java
-                └── Unpacker.java
-```
+Feel free to open issues or submit pull requests for any improvements.
 
-## License
 
-MIT License
-```
-
-You can now directly copy-paste this to your GitHub repository. Let me know if you need further changes!
