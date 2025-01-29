@@ -1,7 +1,7 @@
 
-# 🌟 Generic Data Structure Library in C++ 🌟
+# 🌟 Customized Standard Template Library in C++ 🌟
 
-Welcome to the **Generic Data Structure Library**! This repository contains *generic* implementations of various linear data structures in C++ with custom functionalities to support all primitive data types.
+Welcome to the **Customized Standard Template Library**! This repository contains *generic* implementations of various linear data structures in C++ with custom functionalities to support all primitive data types.
 
 ## Overview
 The following data structures are included in this library:
@@ -205,3 +205,4 @@ Execute the compiled program:
 
 ## 📲 Contact:
 For any questions or feedback, please contact **deshshantanu05@gmail.com**.
+ 
