@@ -1,0 +1,233 @@
+
+# 🌟 Customized Standard Template Library in C++ 🌟
+
+Welcome to the **Customized Standard Template Library**! This repository contains *generic* implementations of various linear data structures in C++ with custom functionalities to support all primitive data types.
+
+## Overview
+The following data structures are included in this library:
+
+- **Array**
+- **Singly Linear Linked List**
+- **Singly Circular Linked List**
+- **Doubly Linear Linked List**
+- **Doubly Circular Linked List**
+- **Stack**
+- **Queue**
+- **Binary Search Tree**
+
+## Features
+### Array:
+- `Accept`: Accepts the user-defined elements.
+- `Display`: Displays the elements.
+
+Custom functions support added for Array: 
+- `Addition`: Computes the sum of all elements.
+- `Multiplication`: Computes the product of all elements.
+- `Maximum`: Finds the maximum element.
+- `Minimum`: Finds the minimum element.
+- `Average`: Computes the average of all elements.
+- `DisplayEven`: Displays all even elements.
+- `DisplayOdd`: Displays all odd elements.
+- `Reverse`: Reverses the order of elements.
+
+### Linked Lists
+Supports the following common functionalities:
+- `InsertFirst`: Inserts an element at the beginning of the structure.
+- `InsertLast`: Inserts an element at the end of the structure.
+- `DeleteFirst`: Removes the first element.
+- `DeleteLast`: Removes the last element.
+- `InsertAtPos`: Inserts an element at a specified position.
+- `DeleteAtPos`: Removes an element from a specified position.
+- `Display`: Displays all elements in the structure.
+- `CountNode`: Returns the number of elements in the structure.
+
+### Stack
+Supports the following regular functionalities:
+- `Push`: Inserts an element in the stack.
+- `Pop`: Removes the recently added element (LIFO).
+- `Display`: Displays all elements in the stack.
+- `CountNode`: Returns the number of elements in the stack.
+
+### Queue
+Supports the following regular functionalities:
+- `Enqueue`: Inserts an element in the queue.
+- `Dequeue`: Removes the element which came first (FCFS).
+- `Display`: Displays all elements in the queue.
+- `CountNode`: Returns the number of elements in the queue.
+
+### Binary Search Tree
+Supports the following functionalities:
+- `Insert`: Inserts an element in the BST.
+- `Search`: Searches for an element in the BST.
+- `Inorder`: Displays elements in ascending order.
+- `Preorder`: Displays elements in pre-order traversal.
+- `Postorder`: Displays elements in post-order traversal.
+- `CountNode`: Returns the number of nodes in the BST.
+- `CountLeaf`: Returns the number of leaf nodes.
+- `CountParent`: Returns the number of parent nodes.
+- `Sum`: Computes the sum of all elements.
+- `CountEven`: Counts the number of even elements.
+- `CountOdd`: Counts the number of odd elements.
+
+Additional customized functions include (for all linear data structures except Array):
+- `SearchFirstOccurrence`: Searches for the first occurrence of a value.
+- `SearchLastOccurrence`: Searches for the last occurrence of a value.
+- `MaximumElement`: Finds the maximum element.
+- `MinimumElement`: Finds the minimum element.
+- `SecondMaximumElement`: Finds the second maximum element.
+- `SecondMinimumElement`: Finds the second minimum element.
+
+## 📌 Use Cases & Real-World Applications  
+
+This **Customized Standard Template Library (CSTL)** isn't just an academic exercise—its applications extend to real-world scenarios, making it a powerful tool in system-level programming.
+
+Here’s where similar **customized data structures** play a crucial role:
+
+👉 **Database Indexing**  
+- The **BST implementation** can be used for **efficient indexing** in databases, allowing quick searches, inserts, and deletions.  
+- Optimizing search performance using BST-based indexing, similar to **B-Trees** in databases.  
+
+👉 **Memory Management System**  
+- **Linked lists** are commonly used in memory allocation techniques (e.g., **free-list management** in OS).  
+- The **custom Stack and Queue** can simulate memory paging and scheduling mechanisms.  
+
+👉 **Compiler Design Modules**  
+- **Stacks** are widely used in **expression evaluation** (postfix, infix, prefix conversion).  
+- **Queues** are used in **lexical analysis** and **syntax parsing** in compilers.  
+- **BST helps in symbol table management**, where variables and functions are stored efficiently.  
+
+👉 **IoT Data Logging System**  
+- **Queues and linked lists** can handle **real-time data streams** in IoT devices.  
+- The **optimized search and sorting** in this library can help process sensor data efficiently.  
+- **Stack-based rollback mechanisms** can store recent operations for data recovery in IoT systems.  
+These use cases demonstrate how CSTL serves as the **backbone for system-level applications**, making it a versatile addition to any project.
+
+## 🚀 Example Usage for Array
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main() {
+    int Size = 0;
+
+    cout << "Enter number of elements: ";
+    cin >> Size;
+
+    Array<float> fobj(Size);
+
+    fobj.Accept();
+    fobj.Display();
+
+    float fRet = fobj.Addition();
+    cout << "Sum of elements: " << fRet << endl;
+
+    fobj.Reverse();
+    cout << "After Reverse:" << endl;
+    fobj.Display();
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Singly Linked List (Same usage for remaining Linked Lists)
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    SinglyLL<int> iobj;
+    iobj.InsertLast(11);
+    iobj.InsertLast(21);
+    iobj.InsertLast(51);
+    iobj.InsertLast(101);
+    iobj.Display();
+    
+    int iRet = iobj.SecondMinimumElement();
+    cout << "Second Minimum Element: " << iRet << endl;
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Stack
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    Stack<int> iobj;
+    iobj.Push(51);    
+    iobj.Push(21);    
+    iobj.Push(11);
+    iobj.Display();
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Queue
+
+```cpp
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    Queue<int> iobj;
+    iobj.Enqueue(11);
+    iobj.Enqueue(21);    
+    iobj.Enqueue(51);
+    iobj.Display();
+
+    return 0;
+}
+```
+
+## 🚀 Example Usage for Binary Search Tree
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    BinarySearchTree<int> iobj;
+    iobj.Insert(50);
+    iobj.Insert(30);
+    iobj.Insert(20);
+    iobj.Insert(70);
+    iobj.Inorder();
+
+    cout << "Element 30 " << (iobj.Search(30) ? "found" : "not found") << " in the BST.\n";
+    cout << "Total Nodes: " << iobj.CountNode() << "\n";
+
+    return 0;
+}
+```
+
+## 🛠️ How to Run / Use:
+
+1. **Navigate to the project directory:**
+```bash
+cd Customized-Standard-Template-library
+```
+
+2. **Compile the code using a C++ compiler:**
+```bash
+g++ main.cpp -o main
+```
+
+3. **Run the Program:**
+Execute the compiled program: 
+```bash
+./main
+```
+
+## 📲 Contact:
+For any questions or feedback, please contact **deshshantanu05@gmail.com**.
+ 
