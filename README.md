@@ -9,7 +9,7 @@ Welcome to my **Personal Projects Portfolio** — a curated collection of self-b
 | CSTL                      | Custom Standard Template Library for C++   | C++                   |
 | Packer-Unpacker           | File Compression & Decompression Utility   | Java, File I/O        |
 | Chat Messenger            | Console-based Chat Application            | Java, Socket Programming |
-| CDMS                      | Customised Database Management System     | Java, File Handling, OOPS |
+| CSMS                      | Customised Student Management System     | Java, File Handling, OOPS |
 
 ### 🛠️ Tech Stack
 - **Languages**: C++, Java  
